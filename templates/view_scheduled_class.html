@@ -1,0 +1,50 @@
+{% extends 'common.html' %}
+{% block content %}
+    {% include 'admin_menu.html' %}
+    <!----------container start--------->
+    <div class="container p-5">
+    <div class="card bg-primary text-white">
+        <div class="card-body">Scheduled Classes Details</div>
+    </div>
+    <br/>
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>Faculty Name</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Course Fees</th>
+                <th>Course Duration</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+            </thead>
+            {% for x in data %}
+                <tr>
+                    {% for y in x %}
+                        <th>
+                            {{ y }}
+                        </th>
+                    {% endfor %}
+                    <th>
+                        <center>
+                            <a href="http://127.0.0.1:5000/upadte_course?cno={{ x[0] }}">
+                                <i style='font-size:24px' class='fas'>&#xf1b8;</i>
+                            </a>
+                        </center>
+                    </th>
+                    <th>
+                        <center>
+                            <a href="http://127.0.0.1:5000/delete?cno={{ x[0] }}" style="color:red;">
+                                <i style='font-size:24px' class='fas'>&#xf0c4;</i>
+                            </a>
+                        </center>
+                    </th>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+<!----------container end--------->
+{% endblock %}

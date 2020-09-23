@@ -1,0 +1,69 @@
+{% extends 'common.html' %}
+
+{% block content %}
+    {% include 'admin_menu.html' %}
+    <!----------container start--------->
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <!-------CARD start--------->
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <center>
+                            <h3 class="text-white">
+          New class Details
+                            </h3>
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        <!--------form start-------->
+                        <form action="http://127.0.0.1:5000/save_upadte_course" method="post">
+                         <input type="hidden" value="{{ data[0] }}"name="c0">
+                            <div class="form-group">
+                                <label>Course Name:</label>
+                                <input type="text" name="c1" value="{{ data[1] }}" required placeholder="Course Name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Faculty Name:</label>
+                                <input type="text" name="c2" value="{{ data[2] }}" required placeholder="Faculty name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Date of Start:</label>
+                                <input type="date" name="c3" value="{{ data[3] }}" required placeholder="Date of Start" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Time:</label>
+                                <input type="time" name="c4" value="{{ data[4] }}" required placeholder="Time" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Fees:</label>
+                                <input type="number" name="c5" value="{{ data[5] }}" required placeholder="Fees" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label>Duration in Days:</label>
+                                <input type="number" name="c6" value="{{ data[6] }}" required placeholder="Duration in days" class="form-control">
+                            </div>
+                            <center>
+                                <input type="submit" class="btn btn-success" value="Update">
+                            </center>
+                            {% if message %}
+                                <br/>
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>  {{ message }} </strong>
+                                </div>
+                            {% endif %}
+                        </form>
+                        <!----------form end--------->
+                    </div>
+                </div>
+                <!-------CARD END--------->
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <!----------row end--------->
+    </div>
+    <!----------container end--------->
+
+
+{% endblock %}

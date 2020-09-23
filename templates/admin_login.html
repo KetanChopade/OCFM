@@ -1,0 +1,53 @@
+{% extends 'common.html' %}
+{% block content %}
+    <!----------container start--------->
+    <div class="container p-5">
+        <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <!-------CARD start--------->
+                <div class="card">
+                    <div class="card-header bg-danger text-white">
+                        <center>
+                            <h3 class="text-white">
+                                Admin Login
+                            </h3>
+                        </center>
+                    </div>
+                    <div class="card-body">
+                        <!--------form start-------->
+                        <form action="http://127.0.0.1:5000/validate_admin" method="post">
+                            <div class="form-group">
+                                <label for="email">Username:</label>
+                                <input type="text" placeholder="username" name="t1" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" placeholder="password" name="t2" required>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox"> Remember me
+                                </label>
+                            </div>
+                            <center>
+                                <input type="submit" class="btn btn-success" value="Submit">
+                            </center>
+                            {% if message %}
+                                <br/>
+                                <div class="alert alert-danger">
+                                    <strong> {{ message.error }}</strong>
+                                </div>
+                            {% endif %}
+                        </form>
+                        <!----------form end--------->
+                    </div>
+                </div>
+                <!-------CARD END--------->
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+        <!----------row end--------->
+    </div>
+    <!----------container end--------->
+{% endblock %}
